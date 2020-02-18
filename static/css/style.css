@@ -211,8 +211,9 @@ body {
 }
 .options{
     width: 80%;
+    padding-top: 10px;
     position: relative;
-    top: 5%;
+    top: 6%;
     left: 10%;
    
 }

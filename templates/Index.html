@@ -184,15 +184,16 @@
 
     <!-- Editor -->
     <div>
+        <!-- Fetch from Url -->
         <form action="{{url_for('home')}}" method="POST">
-            <div style="display: flex; width: 80%; justify-content:space-evenly;position: absolute;top: 6.5%;left: 8%;">
+            <div style="display: flex; width: 80%; justify-content:space-evenly;position: absolute;top: 6%;left: 10%;">
                 <input type="text" name="url"
                     style="width: 80%;border:.8px solid black;border-radius: 4px;outline: none;padding: 0px 10px; display: inline-block;"
-                    placeholder="Enter url ..">
+                    placeholder="Enter url to fetch data ..">
                 <input type="submit" value="Fetch" class="btn btn-primary" style="margin: 0 !important; "></input>
             </div>
         </form>
-        <!-- Small Toolbar  -->
+        <!-- Small Toolbar Top of toolbar  -->
         <div class="smalltoolbar">
 
 
@@ -223,9 +224,9 @@
         </div>
 
 
-
+        <!-- <p>{{article_title}}</p> -->
         <div contenteditable="true" name="editor" class="editor" placeholder="Enter Text here.......">
-            <p>{{article_title}}</p>
+            
             {%for para in fetched_article %}
             <p>{{para}}</p>
             {% endfor %}

@@ -24,10 +24,11 @@ def home():
 
         fetched_article=(article.text)
         fetched_article=fetched_article.split('\n')
-        
+        # print(fetched_article)
         article_title=article.title
         
-        return render_template("index.html",fetched_article=fetched_article,article_title=article_title)
+        # return render_template("index.html",fetched_article=fetched_article,article_title=article_title)
+        return render_template("index.html",fetched_article=fetched_article)
   
     
 
