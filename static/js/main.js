@@ -1,5 +1,3 @@
-
-
 $(".iconbtn").bind("click", function () {
     console.log("clicked")
 })
@@ -226,12 +224,6 @@ ssml.listners = {
 
         document.querySelector("div[contenteditable]").addEventListener('paste', handlePaste);
     }
-
-
-
-
-
-
 
 
 
