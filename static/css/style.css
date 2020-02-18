@@ -84,19 +84,6 @@ body {
 
 
 
-/* .btn-primary, .btn-primary:hover, .btn-primary:active,.btn-primary:visited {
-    background-color: rgb(255, 255, 255) !important;
-    border-color: rgb(255, 255, 255) !important;
-    color:black !important;
-    font-size: 18px!important;
-    box-shadow: none !important;
-    outline: none !important;
-}  */
-
-
-
-
-
 .toolbar {
     width: 80%;
     margin: 10px auto;
@@ -126,21 +113,6 @@ body {
     /* border: 2px solid; */
 }
 
-/* .output-wrapper:hover{
-    outline: none;
-    border-color: rebeccapurple;
-    box-shadow: 0 0 30px rebeccapurple;
-
-} */
-
-
-/* .ssml{
-    height: auto;
-    width: 100px;
-    justify-content: space-evenly;
-    align-items: center;
-    
-} */
 .convertdiv {
     display: flex;
     justify-content: space-around;

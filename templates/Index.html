@@ -156,37 +156,6 @@
     </div>
 
 
-
-    <!-- Small Toolbar-On top of editor-->
-    <!-- <div class="smalltoolbar" style="display: none;"> -->
-
-        <!-- <i class="fa fa-undo" aria-hidden="true"></i> -->
-
-        <!-- <button type="button" class="btn1 undo action-button" data-action="ssml.actions.undo()"><i
-            class="fa fa-undo" aria-hidden="true"></i> Undo</button> -->
-        <!-- <button class="btn1 undo action-button" data-action="ssml.actions.undo()">
-            <i class="material-icons large iconbtn" style="transform: scaleY(-1); size: 50em!important;"
-                title="Undo">keyboard_return</i>
-        </button>
-        <button class="btn1 redo action-button" data-action="ssml.actions.redo()">
-            <i class="material-icons large iconbtn" style="transform: scale(-1,-1);" title="Redo
-            " data-action="ssml.actions.redo()">keyboard_return</i>
-        </button>
-
-        <button class="btn1  clear action-button" data-action="ssml.actions.clear
-        ()"><i class="material-icons large iconbtn clear" title="Clear">clear</i></button>
-
-
-        <i class="material-icons large iconbtn speed" title="Speed">fast_forward</i>
-
-        <i class="material-icons large iconbtn emph" title="Emphasis">record_voice_over</i>
-
-        <button class="btn1 delay action-button" data-action="ssml.actions.insertDelay()"><i
-                class="material-icons large iconbtn delay" title="Delay">access_time</i></button>
-
-    </div> -->
-
-
     <!-- Show Options -->
     <span class="options" style="display: none;">
         <div class="op_speed" role="group" aria-label="Pitch">
@@ -226,9 +195,7 @@
         <!-- Small Toolbar  -->
         <div class="smalltoolbar">
 
-            <!-- <i class="fa fa-undo" aria-hidden="true"></i> -->
-            <!-- <button type="button" class="btn1 undo action-button" data-action="ssml.actions.undo()"><i
-                class="fa fa-undo" aria-hidden="true"></i> Undo</button> -->
+
             <button class="btn1 undo action-button" data-action="ssml.actions.undo()">
                 <i class="material-icons large iconbtn" style="transform: scaleY(-1); size: 50em!important;"
                     title="Undo">keyboard_return</i>
@@ -257,11 +224,11 @@
 
 
 
-        <div contenteditable="true" name="editor"  class="editor" placeholder="Enter Text here.......">
+        <div contenteditable="true" name="editor" class="editor" placeholder="Enter Text here.......">
             <p>{{article_title}}</p>
-                {%for para in fetched_article %}
-                <p>{{para}}</p>
-                {% endfor %}
+            {%for para in fetched_article %}
+            <p>{{para}}</p>
+            {% endfor %}
         </div>
 
     </div>
@@ -281,7 +248,6 @@
     <div class="output-wrapper">
         <div class="output" id="output1"></div>
     </div>
-    <!-- <div id="edit" style="height: 500px; font-size: 15px; width: 700px;" contenteditable="true"></div> -->
 
 
 
@@ -289,9 +255,9 @@
 
     <!-- scripts -->
     <script type="text/javascript">
-        
-      
-                
+
+
+
 
 
     </script>
@@ -303,7 +269,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static',filename='js/main.js') }}" type="text/javascript">
-        
+
     </script>
 
 
