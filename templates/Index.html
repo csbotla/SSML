@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>SSML Editor</title>
+</head>
+
+<body>
+
+
+    <h1>SSML Editor</h1>
+    <!-- Hover Menu on selecting text -->
+
+    <div class="toolbar1" style="display: none;">
+        <div class="bgd">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Emphasis">
+                <button type="button" class="btn btn-primary emphasis action-button"
+                    data-action="ssml.actions.type('emphasis')">Emphasis</button>
+                <button type="button" class="btn btn-primary moderate action-button"
+                    data-action="ssml.actions.type('moderate')">Moderate</button>
+                <button type="button" class="btn btn-primary slow action-button"
+                    data-action="ssml.actions.type('reduced')">Reduced</button>
+                <button type="button" class="btn btn-primary normal action-button"
+                    data-action="ssml.actions.type('none')">Normal</button>
+            </div>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Pitch">
+                <button type="button" class="btn btn-primary slower action-button"
+                    data-action="ssml.actions.type('slower')">Slower</button>
+                <button type="button" class="btn btn-primary slow action-button"
+                    data-action="ssml.actions.type('slow')">Slow</button>
+                <button type="button" class="btn btn-primary normal action-button"
+                    data-action="ssml.actions.type('normal')">Normal</button>
+                <button type="button" class="btn btn-primary fast action-button"
+                    data-action="ssml.actions.type('fast')">Fast</button>
+                <button type="button" class="btn btn-primary faster action-button"
+                    data-action="ssml.actions.type('faster')">Faster</button>
+            </div>
+
+            <div class="btn-group btn-group-sm" role="group" aria-label="Pronounciation1">
+                <button type="button" class="btn btn-primary cardinal action-button"
+                    data-action="ssml.actions.type('cardinal')">Cardinal</button>
+                <button type="button" class="btn btn-primary ordinal action-button"
+                    data-action="ssml.actions.type('ordinal')">Ordinal</button>
+                <button type="button" class="btn btn-primary characters action-button"
+                    data-action="ssml.actions.type('characters')">Characters</button>
+                <button type="button" class="btn btn-primary fraction action-button"
+                    data-action="ssml.actions.type('fraction')">Fraction</button>
+            </div>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Pronounciation2">
+                <button type="button" class="btn btn-primary bleep action-button"
+                    data-action="ssml.actions.type('bleep')">Bleep</button>
+                <button type="button" class="btn btn-primary units action-button"
+                    data-action="ssml.actions.type('unit')">Units</button>
+                <button type="button" class="btn btn-primary spellout action-button"
+                    data-action="ssml.actions.type('spellout')">Spell-Out</button>
+                <button type="button" class="btn btn-primary date action-button"
+                    data-action="ssml.actions.type('date')">Date</button>
+                <button type="button" class="btn btn-primary time action-button"
+                    data-action="ssml.actions.type('time')">Time</button>
+            </div>
+
+
+
+
+            <div class="btn-group btn-group-sm" role="group" aria-label="Delay">
+                <button type="button" class="btn btn-primary insertdelay action-button"
+                    data-action="ssml.actions.insertDelay()">Insert Delay</button>
+
+            </div>
+            <!-- <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">insertDelay</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+              </div> -->
+            <div class="btn-group btn-group-sm" role="group" aria-label="UndoRedo">
+                <button type="button" class="btn btn-secondary undo action-button " data-action="ssml.actions.undo()"><i
+                        class="fa fa-undo" aria-hidden="true"></i> Undo</button>
+                <button type="button" class="btn btn-secondary redo action-button" data-action="ssml.actions.redo()"><i
+                        class="fa fa-repeat" aria-hidden="true"></i> Redo</button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Show button groups on button clicks -->
+    <div class="toolbar">
+        <div class="btn-group btn-group-sm emphasis1" role="group" aria-label="Emphasis" style="display: none;">
+            <button type="button" class="btn btn-primary emphasis action-button"
+                data-action="ssml.actions.type('emphasis')">Emphasis</button>
+            <button type="button" class="btn btn-primary moderate action-button"
+                data-action="ssml.actions.type('moderate')">Moderate</button>
+            <button type="button" class="btn btn-primary slow action-button"
+                data-action="ssml.actions.type('reduced')">Reduced</button>
+            <button type="button" class="btn btn-primary normal action-button"
+                data-action="ssml.actions.type('none')">Normal</button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Pitch" style="display: none;">
+            <button type="button" class="btn btn-primary slower action-button"
+                data-action="ssml.actions.type('slower')">Slower</button>
+            <button type="button" class="btn btn-primary slow action-button"
+                data-action="ssml.actions.type('slow')">Slow</button>
+            <button type="button" class="btn btn-primary normal action-button"
+                data-action="ssml.actions.type('normal')">Normal</button>
+            <button type="button" class="btn btn-primary fast action-button"
+                data-action="ssml.actions.type('fast')">Fast</button>
+            <button type="button" class="btn btn-primary faster action-button"
+                data-action="ssml.actions.type('faster')">Faster</button>
+        </div>
+
+        <div class="btn-group btn-group-sm" role="group" aria-label="Pronounciation1" style="display: none;">
+            <button type="button" class="btn btn-primary cardinal action-button"
+                data-action="ssml.actions.type('cardinal')">Cardinal</button>
+            <button type="button" class="btn btn-primary ordinal action-button"
+                data-action="ssml.actions.type('ordinal')">Ordinal</button>
+            <button type="button" class="btn btn-primary characters action-button"
+                data-action="ssml.actions.type('characters')">Characters</button>
+            <button type="button" class="btn btn-primary fraction action-button"
+                data-action="ssml.actions.type('fraction')">Fraction</button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Pronounciation2" style="display: none;">
+            <button type="button" class="btn btn-primary bleep action-button"
+                data-action="ssml.actions.type('bleep')">Bleep</button>
+            <button type="button" class="btn btn-primary units action-button"
+                data-action="ssml.actions.type('unit')">Units</button>
+            <button type="button" class="btn btn-primary spellout action-button"
+                data-action="ssml.actions.type('spellout')">Spell-Out</button>
+            <button type="button" class="btn btn-primary date action-button"
+                data-action="ssml.actions.type('date')">Date</button>
+            <button type="button" class="btn btn-primary time action-button"
+                data-action="ssml.actions.type('time')">Time</button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Delay" style="display: none;">
+            <button type="button" class="btn btn-primary insertdelay action-button"
+                data-action="ssml.actions.insertDelay()">Insert Delay</button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="UndoRedo" style="display: none;">
+            <button type="button" class="btn btn-secondary undo action-button " data-action="ssml.actions.undo()"><i
+                    class="fa fa-undo" aria-hidden="true"></i> Undo</button>
+            <button type="button" class="btn btn-secondary redo action-button" data-action="ssml.actions.redo()"><i
+                    class="fa fa-repeat" aria-hidden="true"></i> Redo</button>
+
+        </div>
+    </div>
+
+
+
+    <!-- Small Toolbar-On top of editor-->
+    <!-- <div class="smalltoolbar" style="display: none;"> -->
+
+        <!-- <i class="fa fa-undo" aria-hidden="true"></i> -->
+
+        <!-- <button type="button" class="btn1 undo action-button" data-action="ssml.actions.undo()"><i
+            class="fa fa-undo" aria-hidden="true"></i> Undo</button> -->
+        <!-- <button class="btn1 undo action-button" data-action="ssml.actions.undo()">
+            <i class="material-icons large iconbtn" style="transform: scaleY(-1); size: 50em!important;"
+                title="Undo">keyboard_return</i>
+        </button>
+        <button class="btn1 redo action-button" data-action="ssml.actions.redo()">
+            <i class="material-icons large iconbtn" style="transform: scale(-1,-1);" title="Redo
+            " data-action="ssml.actions.redo()">keyboard_return</i>
+        </button>
+
+        <button class="btn1  clear action-button" data-action="ssml.actions.clear
+        ()"><i class="material-icons large iconbtn clear" title="Clear">clear</i></button>
+
+
+        <i class="material-icons large iconbtn speed" title="Speed">fast_forward</i>
+
+        <i class="material-icons large iconbtn emph" title="Emphasis">record_voice_over</i>
+
+        <button class="btn1 delay action-button" data-action="ssml.actions.insertDelay()"><i
+                class="material-icons large iconbtn delay" title="Delay">access_time</i></button>
+
+    </div> -->
+
+
+    <!-- Show Options -->
+    <span class="options" style="display: none;">
+        <div class="op_speed" role="group" aria-label="Pitch">
+            <button type="button" class="btn btn-primary btn-sm slower action-button"
+                data-action="ssml.actions.type('slower')">Slower</button>
+            <button type="button" class="btn btn-primary btn-sm slow action-button"
+                data-action="ssml.actions.type('slow')">Slow</button>
+            <button type="button" class="btn btn-primary btn-sm normal action-button"
+                data-action="ssml.actions.type('normal')">Normal</button>
+            <button type="button" class="btn btn-primary btn-sm fast action-button"
+                data-action="ssml.actions.type('fast')">Fast</button>
+            <button type="button" class="btn btn-primary btn-sm faster action-button"
+                data-action="ssml.actions.type('faster')">Faster</button>
+        </div>
+        <div class="op_emp" role="group" aria-label="Emphasis">
+            <button type="button" class="btn btn-primary btn-sm emphasis action-button"
+                data-action="ssml.actions.type('emphasis')">Emphasis</button>
+            <button type="button" class="btn btn-primary btn-sm moderate action-button"
+                data-action="ssml.actions.type('moderate')">Moderate</button>
+            <button type="button" class="btn btn-primary btn-sm slow action-button"
+                data-action="ssml.actions.type('reduced')">Reduced</button>
+            <button type="button" class="btn btn-primary btn-sm normal action-button"
+                data-action="ssml.actions.type('none')">Normal</button>
+        </div>
+    </span>
+
+    <!-- Editor -->
+    <div>
+        <form action="{{url_for('home')}}" method="POST">
+            <div style="display: flex; width: 80%; justify-content:space-evenly;position: absolute;top: 6.5%;left: 8%;">
+                <input type="text" name="url"
+                    style="width: 80%;border:.8px solid black;border-radius: 4px;outline: none;padding: 0px 10px; display: inline-block;"
+                    placeholder="Enter url ..">
+                <input type="submit" value="Fetch" class="btn btn-primary" style="margin: 0 !important; "></input>
+            </div>
+        </form>
+        <!-- Small Toolbar  -->
+        <div class="smalltoolbar">
+
+            <!-- <i class="fa fa-undo" aria-hidden="true"></i> -->
+            <!-- <button type="button" class="btn1 undo action-button" data-action="ssml.actions.undo()"><i
+                class="fa fa-undo" aria-hidden="true"></i> Undo</button> -->
+            <button class="btn1 undo action-button" data-action="ssml.actions.undo()">
+                <i class="material-icons large iconbtn" style="transform: scaleY(-1); size: 50em!important;"
+                    title="Undo">keyboard_return</i>
+            </button>
+            <button class="btn1 redo action-button" data-action="ssml.actions.redo()">
+                <i class="material-icons large iconbtn" style="transform: scale(-1,-1);" title="Redo
+                " data-action="ssml.actions.redo()">keyboard_return</i>
+            </button>
+
+            <button class="btn1  clear action-button" data-action="ssml.actions.clear
+            ()"><i class="material-icons large iconbtn clear" title="Clear">clear</i></button>
+
+            <div class="sep"
+                style="display:inline-block;padding: 1px 1px; width: .8px; height: 23px;margin: 0px 5px; background-color: #dfe1e6;">
+            </div>
+
+            <i class="material-icons large iconbtn speed" title="Speed">fast_forward</i>
+
+            <i class="material-icons large iconbtn emph" title="Emphasis">record_voice_over</i>
+
+            <button class="btn1 delay action-button" data-action="ssml.actions.insertDelay()"><i
+                    class="material-icons large iconbtn delay" title="Delay">access_time</i></button>
+
+
+        </div>
+
+
+
+        <div contenteditable="true" name="editor"  class="editor" placeholder="Enter Text here.......">
+            <p>{{article_title}}</p>
+                {%for para in fetched_article %}
+                <p>{{para}}</p>
+                {% endfor %}
+        </div>
+
+    </div>
+
+
+
+
+    <!-- SSML Convert -->
+    <div class="convertdiv">
+        <button class="convert btn btn-secondary action-button" type="button"
+            data-action="ssml.actions.convertToSsml()">Show SSML</button>
+    </div>
+
+
+
+    <!-- Output SSML  -->
+    <div class="output-wrapper">
+        <div class="output" id="output1"></div>
+    </div>
+    <!-- <div id="edit" style="height: 500px; font-size: 15px; width: 700px;" contenteditable="true"></div> -->
+
+
+
+
+
+    <!-- scripts -->
+    <script type="text/javascript">
+        
+      
+                
+
+
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static',filename='js/main.js') }}" type="text/javascript">
+        
+    </script>
+
+
+
+</body>
+
+</html>
