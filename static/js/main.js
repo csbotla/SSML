@@ -1,20 +1,3 @@
-// $(document).ready(function(){
-//     $(".convert").click(function(){
-//       var html=$(".editor").html();
-//       console.log(html);
-//       var $newContent = $("<p/>");
-
-//      /* Wrap text */
-//     $newContent.append(html);
-//     console.log($newContent)
-
-//     $(document.getElementById(".emphasis")).replaceWith(function(){
-//                     return '<emphasis level="strong">' +  this.innerHTML + "</emphasis>";
-
-//     })
-
-//     });
-//   });
 
 
 $(".iconbtn").bind("click", function () {
@@ -194,12 +177,7 @@ ssml.actions = {
         })
 
         var final = $(".output").text("<speak>" + $newContent.html() + "</speak>");
-        // $("#edit").html(final["0"].innerText);
-        // var editor=ace.edit("edit");
-        // editor.getSession().setMode("ace/mode/xml");
-        // editor.setTheme("ace/theme/monokai");
-        // editor.session.setValue(final["0"].innerText);
-        // editor.session.setFoldStyle("markbeginend");
+
 
         console.log(final["0"].innerText);
 
@@ -218,33 +196,6 @@ ssml.listners = {
             });
         }
     },
-
-    // ssml.init = function () {
-    //     this.listners.actionbuttons();
-    //     document.execCommand("defaultParagraphSeparator", false, "p");
-
-    //     document.querySelector("div[contenteditable]").addEventListener("paste", function (e) {
-    //         e.preventDefault();
-    //         // var html = e.clipboardData.getData("text/html");
-    //         // var text = e.clipboardData.getData("text/plain");
-    //         // console.log(html)
-    //         // document.execCommand("insertHTML", false, html.replace(/<(?!\s*\/?\s*p\b)[^>]*>/gi,''));
-
-
-
-    //         var text = e.clipboardData.getData("text/html");
-    //         console.log(text);
-
-    //         // function stripHtml(text) {
-    //         //     var tmp = document.createElement("p");
-    //         //     tmp.innerHTML = text;
-    //         //     return tmp.textContent || tmp.innerText || "";
-    //         // text.replace(/<(?!\s*\/?\s*p\b)[^>]*>/gi,'')
-    //         // }
-    //         document.execCommand("insertHTML", false, text.replace(/<(?!\s*\/?\s*p\b)[^>]*>/gi,''));
-    //     });
-    // }
-
 
 
     
@@ -292,19 +243,13 @@ $(function () {
 
         var menu = $(".toolbar1");
         var selection = document.getSelection().toString();
-        // document.addEventListener("selectionchange", event => {
-        //     selection = document.getSelection ? document.getSelection().toString() : document.selection
-        //         .createRange().toString();
-        //     console.log(selection);
-        // });
+
 
         if (selection !== '') {
             console.log(document.getSelection().getRangeAt(0).getBoundingClientRect());
 
-            // var hTextRect = document.getSelection().getRangeAt(0).getBoundingClientRect();
             var p = document.getSelection().getRangeAt(0).getBoundingClientRect();
 
-            // console.log(hTextRect.x, hTextRect.height, hTextRect.y, hTextRect.width)
             console.log(window.scrollX, window.scrollY)
             menu.css({
                 display: 'block',
