@@ -11,7 +11,7 @@ html5lib==1.0.1
 idna==2.8
 itsdangerous==1.1.0
 jieba3k==0.35.1
-Jinja2==2.11.1
+Jinja2==2.11.3
 lxml==4.5.0
 MarkupSafe==1.1.1
 newspaper3k==0.2.8
