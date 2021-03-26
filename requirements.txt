@@ -20,7 +20,7 @@ pi==0.1.2
 Pillow==7.1.0
 pycodestyle==2.5.0
 python-dateutil==2.8.1
-PyYAML==5.3
+PyYAML==5.4
 regex==2020.1.8
 requests==2.22.0
 requests-file==1.4.3
